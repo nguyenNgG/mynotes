@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/services/crud/crud_exceptions.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart'
     show MissingPlatformDirectoryException, getApplicationDocumentsDirectory;
