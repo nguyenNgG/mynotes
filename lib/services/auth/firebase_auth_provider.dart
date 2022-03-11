@@ -1,8 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:mynotes/firebase_options.dart';
 import 'package:mynotes/services/auth/auth_user.dart';
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     show FirebaseAuth, FirebaseAuthException;
+
+import 'dart:developer' show log;
 
 class FirebaseAuthProvider implements AuthProvider {
   @override
@@ -57,6 +61,7 @@ class FirebaseAuthProvider implements AuthProvider {
         password: password,
       );
       final user = currentUser;
+      log(user.toString());
       if (user != null) {
         return user;
       } else {
@@ -93,5 +98,12 @@ class FirebaseAuthProvider implements AuthProvider {
     } else {
       throw UserNotLoggedInAuthException();
     }
+  }
+
+  @override
+  Future<void> initialize() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 }
