@@ -198,7 +198,7 @@ class NotesService {
   }
 
   Future<void> deleteUser({required String email}) async {
-    await _ensureDbIsOpen;
+    await _ensureDbIsOpen();
     final db = _getDatabaseOrThrow();
     final deletedCount = await db.delete(
       userTable,

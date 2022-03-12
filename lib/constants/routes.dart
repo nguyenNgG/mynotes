@@ -1,7 +1,13 @@
+//
 const loginRoute = '/login/';
 const registerRoute = '/register/';
-const notesRoute = '/notes/';
 const verifyEmailRoute = '/verify-email/';
+
+//
+const notesRoute = '/notes/';
+const newNoteRoute = '/notes/new-note/';
+
+//
 const createUserTable = '''
 CREATE TABLE IF NOT EXISTS "user" (
   "id"	INTEGER NOT NULL,
